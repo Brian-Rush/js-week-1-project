@@ -1,0 +1,17 @@
+{
+  "name": "Doctor-Finder",
+  "description": "Web app to help users find suitable doctors in their area, using the Better Doctor API",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
