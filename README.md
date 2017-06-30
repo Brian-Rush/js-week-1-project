@@ -3,8 +3,6 @@
 ## Description
 This is a web app that helps users find doctors in the Portland area who can help with their particular medical issue.
 
-## Specifications
-
 ## Setup/Installation Instructions
 * Clone the repo and navigate to the cloned directory in Terminal.
 * Install Node and Node Package Manager (npm).
