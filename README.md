@@ -1,13 +1,28 @@
-# Setup Instructions
-* Clone the repo
-* Open package.json, change 'name' and any other applicable fields to your new projects information.
-* Repeat the previous step for bower.json
-* If using any CSS frameworks, in index.html uncomment the vendor.min.css link in the head
-* If you plan to use bootstrap, in gulpfile.js, uncomment the labeled section on line 16, and comment out the previous line 15
-* Use npm install, and bower install to install necessary dependencies
-* Use gulp build to build js and css files to be included
-* Use gulp serve to launch the development server
-* 'rm -rf .git' and run a new 'git init' to instantiate your own git repo
+# Portland Doctor Finder
 
-# Additional Notes
-* In the JS folder there is an example module exported, and the -interface file using it. Feel free to use these as a template, but should be replaced and the files renamed.
+## Description
+This is a web app that helps users find doctors in the Portland area who can help with their particular medical issue.
+
+## Setup/Installation Instructions
+* Clone the repo and navigate to the cloned directory in Terminal.
+* Install Node and Node Package Manager (npm).
+* In Terminal, type "npm install" to install the necessary back-end dependencies.
+* In Terminal, type "bower install" to install the necessary front-end dependencies.
+* In Terminal, type "gulp build" to build js and css files to be included
+* In Terminal, type "gulp serve" to launch the development server and view the project in your browser (Chrome is recommended)
+
+## Known bugs
+
+* There are no known bugs at this time.
+
+
+## Technologies Used
+
+_HTML, CSS, SASS, JavaScript, JQuery_
+_Node, Gulp, Bower_
+
+### License
+
+MIT
+
+©2017 **Brian Rush**
