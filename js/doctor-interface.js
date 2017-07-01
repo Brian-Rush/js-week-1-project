@@ -23,6 +23,7 @@ var DoctorsObject = require('./../js/doctor.js').doctorModule;
 
 $(document).ready(function() {
 
+
   var instantiatedDoctorsObject = new DoctorsObject("Brian", "Rush", "http://brian-rush.com");
   // console.log(instantiatedDoctorsObject.doctorModule("arthritis"));
   console.log(instantiatedDoctorsObject.webSite);
@@ -40,8 +41,22 @@ $(document).ready(function() {
 
     $('.query').append(query);
 
-    var results = instantiatedDoctorsObject.getDoctors(query);
-    console.log(results);
+    var test = function() {
+      $.get('https://api.betterdoctor.com/2016-03-01/conditions?fields=name&limit=20&user_key=679d615f4427f455b59f5d4a410aebe5').then(function(result) {
+        alert('hello');
+        console.log(result.data[1].name);
+        // for (i=0; i < result.data.length; i++) {
+        //
+        //   $('#output-select-ul').append('<li>' + result[i][i] + '</li>');
+        // }
+      });
+    };
+
+    test();
+
+
+    // var results = instantiatedDoctorsObject.getDoctors(query);
+    // console.log(results);
   });
 
 
