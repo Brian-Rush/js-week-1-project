@@ -2,13 +2,35 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Portland Doctor Finder</title>
     <!-- <link rel="stylesheet" href="build/css/vendor.css"> UNCOMMENT IF YOU INSTALL ANY CSS COMPONENTS WITH BOWER -->
     <link rel="stylesheet" href="build/css/styles.css">
     <script type="text/javascript" src="build/js/vendor.min.js"></script>
     <script type="text/javascript" src="build/js/app.js"></script>
   </head>
   <body>
-    
+    <div class="container">
+      <h1>FIND THE RIGHT DOCTORS IN PDX</h1>
+      <form class="">
+        <label for="query">What condition, issue, or part of the body do you need a doctor for?</label>
+        <input id="query" type="text" name="query" value="" placeholder="eg. Arthritis, massage therapy, family doctor, etc.">
+        <!-- <label for="location">City or General Location</label>
+        <input id="location" type="text" name="location" value="" placeholder='eg. "Portland", "Sellwood", "Eastern Washington", etc.'> -->
+        <button id="submit-button" type="button" name="submit-button">Find Doctors</button>
+      </form>
+      <div class="output">
+        <h3>Doctors that deal with <span class="query"></span></h3>
+        <table>
+          <thead>
+            <th>
+              Name
+            </th>
+            <th>
+              
+            </th>
+          </thead>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
