@@ -17,8 +17,14 @@
         <!-- <label for="location">City or General Location</label>
         <input id="location" type="text" name="location" value="" placeholder='eg. "Portland", "Sellwood", "Eastern Washington", etc.'> -->
         <button id="submit-button" type="button" name="submit-button">Find Doctors</button>
+        <select id="output-select" name="">
+          <!-- API-generated options go here -->
+        </select>
       </form>
       <div class="output">
+        <ul id="output-ul">
+
+        </ul>
         <h3>Doctors that deal with <span class="query"></span></h3>
         <table>
           <thead>
@@ -26,7 +32,7 @@
               Name
             </th>
             <th>
-              
+
             </th>
           </thead>
         </table>
