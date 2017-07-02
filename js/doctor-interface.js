@@ -39,7 +39,7 @@ $(document).ready(function() {
 
   $('#submit-button').click(function(event){
     event.preventDefault();
-
+    $('.query').empty();
     var query = $('#query').val();
     // $('#query').val("");
     console.log("query= " + query);
