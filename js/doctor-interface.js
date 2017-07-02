@@ -1,4 +1,3 @@
-// var ExampleModule = require('./../js/scripts.js').exampleModule;
 var apiKey = require('./../.env').apiKey;
 var DoctorsObject = require('./../js/doctor.js').doctorModule;
 var Conditions = require('./../js/conditions.js').conditionsModule;
@@ -20,9 +19,9 @@ var Conditions = require('./../js/conditions.js').conditionsModule;
 //
 
 var populateConditions = function(allConditions) {
-  $('#output-select').empty();
+  // $('#output-select').empty();
   for(i=0; i < allConditions.length; i++) {
-    $('#output-select').append('<option>' + allConditions[i].name + '</option>');
+    $('#output-select').append('<option value="' + allConditions[i] + '">' + allConditions[i] + '</option>');
   }
 };
 

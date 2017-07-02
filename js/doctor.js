@@ -15,6 +15,8 @@ function DoctorsObject(firstName, lastName, location, specialties, photo, url) {
 DoctorsObject.prototype.getDoctors = function(medicalIssue) {
   $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ medicalIssue+'&location=45.5231%2C-122.6765%2C%205&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=' + apiKey)
    .then(function(result) {
+    //  var doctorFirstName = result.data.
+    //  var doctorName = result.data.
      //this should eventually be a call-back function defined in the front end
 
      console.log(result);
