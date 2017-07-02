@@ -1,5 +1,5 @@
 // var ExampleModule = require('./../js/scripts.js').exampleModule;
-// var apiKey = require('./../.env').apiKey;
+var apiKey = require('./../.env').apiKey;
 var DoctorsObject = require('./../js/doctor.js').doctorModule;
 
 // var DoctorModule = function() {
@@ -42,7 +42,7 @@ $(document).ready(function() {
     $('.query').append(query);
 
     var test = function() {
-      $.get('https://api.betterdoctor.com/2016-03-01/conditions?fields=name&user_key=679d615f4427f455b59f5d4a410aebe5').then(function(result) {
+      $.get('https://api.betterdoctor.com/2016-03-01/conditions?fields=name&user_key=' + apiKey).then(function(result) {
         alert('hello');
         console.log(result.data[4].name);
         for (i=0; i < result.data.length; i++) {
