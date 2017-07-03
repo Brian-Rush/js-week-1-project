@@ -18,6 +18,7 @@ var Conditions = require('./../js/conditions.js').conditionsModule;
 //
 //
 
+//CALL-BACK FUNCTION TO POPULATE THE SELECT MENU
 var populateConditions = function(allConditions) {
   // $('#output-select').empty();
   for(i=0; i < allConditions.length; i++) {
@@ -25,31 +26,56 @@ var populateConditions = function(allConditions) {
   }
 };
 
+//Simple callback TEST (to be deleted)
+// var appendDoctorDetails = function(listOfDoctors) {
+//   for(i=0; i < listOfDoctors.length; i++) {
+//     $('.query').append('<div class="doctor-card"><p>TESTING</p></div>');
+//   }
+// };
+
+
+// var appendDoctorDetails = function(listOfDoctors, image_url, first_name, last_name, bio) {
+//   for(i=0; i < listOfDoctors.length; i++) {
+//     $('.query').append('<div class="doctor-card"><div class="doc-pic"><img src="' + image_url + '" alt="' + first_name + ' ' + last_name + ' profile pic"/></div><div class="doc-text"><h4>' + first_name + ' ' + last_name + '</h4><p>' + bio + '</p></div></div>');
+//   }
+// };
+
 
 //FRONT END
 
 $(document).ready(function() {
 
+  //Create a new Conditions object
   var instantiatedConditionsObject = new Conditions();
+
+  //Get an alphabetized list of all conditions and populate the select box with them
   instantiatedConditionsObject.getConditions(populateConditions);
 
-  var instantiatedDoctorsObject = new DoctorsObject("Brian", "Rush", "http://brian-rush.com");
-  // console.log(instantiatedDoctorsObject.doctorModule("arthritis"));
-  // console.log(instantiatedDoctorsObject.webSite);
+  //Create object that will contain an array of all relevant individual doctors
+  var instantiatedDoctorsObject = new DoctorsObject();
+  // console.log(instantiatedDoctorsObject.);
+  // console.log(instantiatedDoctorsObject.firstName);
 
+
+  //SUBMIT BUTTON LISTENER
   $('#submit-button').click(function(event){
     event.preventDefault();
+
+    //Empty the html display of past results
     $('.query').empty();
+
+    //Declare variable equal to user's typed input
     var query = $('#query').val();
-    // $('#query').val("");
     console.log("query= " + query);
+
+    //Declare variable equal to user's select box choice
     var selectedCondition = $('#output-select').val();
     console.log(selectedCondition);
 
-    // var location = $('#location').val();
-    // $('#location').val("");
-    // console.log("location= " + location);
+    instantiatedDoctorsObject.getDoctors(selectedCondition);
+    // console.log(instantiatedDoctorsObject.listOfDoctors);
 
+    //Append user's typed input in appropriate places
     $('.query').append(query);
 
     // var getConditions = function() {
@@ -62,8 +88,6 @@ $(document).ready(function() {
     //     };
     //   });
     // };
-
-    getConditions();
 
 
     // var results = instantiatedDoctorsObject.getDoctors(query);
