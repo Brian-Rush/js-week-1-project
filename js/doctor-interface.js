@@ -40,6 +40,10 @@ var populateConditions = function(allConditions) {
 //   }
 // };
 
+var emptyOutput = function() {
+  $('.output').empty();
+}
+
 
 //FRONT END
 
@@ -61,8 +65,11 @@ $(document).ready(function() {
   $('#submit-button').click(function(event){
     event.preventDefault();
 
-    //Empty the html display of past results
+    //Empty the span of past conditions
     $('.query').empty();
+
+    //Empty the output area
+    $('.output').empty();
 
     //Declare variable equal to user's typed input
     var query = $('#query').val();
