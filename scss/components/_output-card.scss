@@ -1,0 +1,18 @@
+.initially-hidden {
+  display: none;
+}
+
+.doctor-card {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: lightgrey;
+  padding: 15px;
+  .doc-pic {
+    margin-right: 10px;
+  }
+  .doc-text {
+    h4 {
+      margin-bottom: 10px;
+    }
+  }
+}

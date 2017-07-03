@@ -76,7 +76,8 @@ $(document).ready(function() {
     // console.log(instantiatedDoctorsObject.listOfDoctors);
 
     //Append user's typed input in appropriate places
-    $('.query').append(query);
+    $('.initially-hidden').show();
+    $('.query').append(selectedCondition);
 
     // var getConditions = function() {
     //   $.get('https://api.betterdoctor.com/2016-03-01/conditions?fields=name&user_key=' + apiKey).then(function(result) {

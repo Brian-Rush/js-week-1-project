@@ -18,14 +18,15 @@ function DoctorsObject() {
 DoctorsObject.prototype.getDoctors = function(medicalIssue) {
   $.get('https://api.betterdoctor.com/2016-03-01/doctors?query=' + medicalIssue +'&location=45.5231%2C-122.6765%2C%205&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=' + apiKey).then((result) => {
     var doctorList = result.data;
-    var otherThenFunction = (result) => {
-
-    };
+    // var otherThenFunction = (result) => {
+    //
+    // };
     this.listOfDoctors = [];
     for(i=0; i < doctorList.length; i++) {
       this.listOfDoctors.push(result.data[i].profile);
       console.log(result.data[i].profile);
-      $('.query').append('<div class="doctor-card"><div class="doc-pic"><img src="' + result.data[i].profile.image_url + '" alt="' + result.data[i].profile.first_name + ' ' + result.data[i].profile.last_name + ' profile pic"/></div><div class="doc-text"><h4>' + result.data[i].profile.first_name + ' ' + result.data[i].profile.last_name + '</h4><p>' + result.data[i].profile.bio + '</p></div></div>');
+
+      $('.output').append('<div class="doctor-card"><div class="doc-pic"><img src="' + result.data[i].profile.image_url + '" alt="' + result.data[i].profile.first_name + ' ' + result.data[i].profile.last_name + ' profile pic"/></div><div class="doc-text"><h4>' + result.data[i].profile.first_name + ' ' + result.data[i].profile.last_name + '</h4><p>' + result.data[i].profile.bio + '</p></div></div>');
       // appendDoctorDetails();
       // appendDoctorDetails(result.data[i].profile, result.data[i].profile.image_url, result.data[i].profile.first_name, result.data[i].profile.last_name, result.data[i].profile.bio);
     }
@@ -34,7 +35,6 @@ DoctorsObject.prototype.getDoctors = function(medicalIssue) {
   }).fail(function(error){
       alert("I'm sorry, something's gone wrong! Please try again later.");
       console.log("fail");
-      console.log("inside getDoctors " + this.listOfDoctors[0]);
     });
 
     //Now call the call-back function that appends them
