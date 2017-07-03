@@ -18,6 +18,12 @@ var Conditions = require('./../js/conditions.js').conditionsModule;
 //
 //
 
+//CALL-BACK FUNCTION TO PUSH DOCTOR OBJECTS TO DOCTOR COLLECTION
+// var pushDoctors = function(results, instantiatedDoctorsObject) {
+//   f
+//   instantiatedDoctorsObject.push()
+// }
+
 //CALL-BACK FUNCTION TO POPULATE THE SELECT MENU
 var populateConditions = function(allConditions) {
   // $('#output-select').empty();
@@ -34,6 +40,9 @@ var populateConditions = function(allConditions) {
 // };
 
 
+var appendDoctorDetails = function(image_url, first_name, last_name, bio) {
+    $('.query').append('<div class="doctor-card"><div class="doc-pic"><img src="' + image_url + '" alt="' + first_name + ' ' + last_name + ' profile pic"/></div><div class="doc-text"><h4>' + first_name + ' ' + last_name + '</h4><p>' + bio + '</p></div></div>');
+};
 // var appendDoctorDetails = function(listOfDoctors, image_url, first_name, last_name, bio) {
 //   for(i=0; i < listOfDoctors.length; i++) {
 //     $('.query').append('<div class="doctor-card"><div class="doc-pic"><img src="' + image_url + '" alt="' + first_name + ' ' + last_name + ' profile pic"/></div><div class="doc-text"><h4>' + first_name + ' ' + last_name + '</h4><p>' + bio + '</p></div></div>');
@@ -42,7 +51,7 @@ var populateConditions = function(allConditions) {
 
 var emptyOutput = function() {
   $('.output').empty();
-}
+};
 
 
 //FRONT END
@@ -55,11 +64,9 @@ $(document).ready(function() {
   //Get an alphabetized list of all conditions and populate the select box with them
   instantiatedConditionsObject.getConditions(populateConditions);
 
+
   //Create object that will contain an array of all relevant individual doctors
   var instantiatedDoctorsObject = new DoctorsObject();
-  // console.log(instantiatedDoctorsObject.);
-  // console.log(instantiatedDoctorsObject.firstName);
-
 
   //SUBMIT BUTTON LISTENER
   $('#submit-button').click(function(event){
@@ -72,15 +79,15 @@ $(document).ready(function() {
     $('.output').empty();
 
     //Declare variable equal to user's typed input
-    var query = $('#query').val();
-    console.log("query= " + query);
+    // var query = $('#query').val();
 
     //Declare variable equal to user's select box choice
     var selectedCondition = $('#output-select').val();
     console.log(selectedCondition);
 
-    instantiatedDoctorsObject.getDoctors(selectedCondition);
-    // console.log(instantiatedDoctorsObject.listOfDoctors);
+
+    instantiatedDoctorsObject.getDoctors(selectedCondition, appendDoctorDetails);
+    console.log(instantiatedDoctorsObject.listOfDoctors);
 
     //Append user's typed input in appropriate places
     $('.initially-hidden').show();
