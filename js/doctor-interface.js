@@ -1,28 +1,7 @@
+// Require / import necessary modules
 var apiKey = require('./../.env').apiKey;
 var DoctorsObject = require('./../js/doctor.js').doctorModule;
 var Conditions = require('./../js/conditions.js').conditionsModule;
-
-// var DoctorModule = function() {
-//   this.property = "";
-// }
-//
-// DoctorModule.prototype.doctorModule = function(medicalIssue) {
-//   $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ medicalIssue+'&location=45.5231%2C-122.6765%2C%205&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=' + apiKey)
-//    .then(function(result) {
-//       console.log(result);
-//     })
-//    .fail(function(error){
-//       console.log("fail");
-//     });
-// };
-//
-//
-
-//CALL-BACK FUNCTION TO PUSH DOCTOR OBJECTS TO DOCTOR COLLECTION
-// var pushDoctors = function(results, instantiatedDoctorsObject) {
-//   f
-//   instantiatedDoctorsObject.push()
-// }
 
 //CALL-BACK FUNCTION TO POPULATE THE SELECT MENU
 var populateConditions = function(allConditions) {
@@ -32,22 +11,11 @@ var populateConditions = function(allConditions) {
   }
 };
 
-//Simple callback TEST (to be deleted)
-// var appendDoctorDetails = function(listOfDoctors) {
-//   for(i=0; i < listOfDoctors.length; i++) {
-//     $('.query').append('<div class="doctor-card"><p>TESTING</p></div>');
-//   }
-// };
 
-
+//CALL-BACK FUNCTION TO PUSH DOCTOR OBJECTS TO DOCTOR COLLECTION
 var appendDoctorDetails = function(image_url, first_name, last_name, bio) {
     $('.query').append('<div class="doctor-card"><div class="doc-pic"><img src="' + image_url + '" alt="' + first_name + ' ' + last_name + ' profile pic"/></div><div class="doc-text"><h4>' + first_name + ' ' + last_name + '</h4><p>' + bio + '</p></div></div>');
 };
-// var appendDoctorDetails = function(listOfDoctors, image_url, first_name, last_name, bio) {
-//   for(i=0; i < listOfDoctors.length; i++) {
-//     $('.query').append('<div class="doctor-card"><div class="doc-pic"><img src="' + image_url + '" alt="' + first_name + ' ' + last_name + ' profile pic"/></div><div class="doc-text"><h4>' + first_name + ' ' + last_name + '</h4><p>' + bio + '</p></div></div>');
-//   }
-// };
 
 var emptyOutput = function() {
   $('.output').empty();
@@ -78,9 +46,6 @@ $(document).ready(function() {
     //Empty the output area
     $('.output').empty();
 
-    //Declare variable equal to user's typed input
-    // var query = $('#query').val();
-
     //Declare variable equal to user's select box choice
     var selectedCondition = $('#output-select').val();
     console.log(selectedCondition);
@@ -92,28 +57,5 @@ $(document).ready(function() {
     //Append user's typed input in appropriate places
     $('.initially-hidden').show();
     $('.query').append(selectedCondition);
-
-    // var getConditions = function() {
-    //   $.get('https://api.betterdoctor.com/2016-03-01/conditions?fields=name&user_key=' + apiKey).then(function(result) {
-    //     alert('hello');
-    //     console.log(result.data[4].name);
-    //     for (i=0; i < result.data.length; i++) {
-    //       console.log(result.data[i].name);
-    //       $('#output-select').append('<option>' + result.data[i].name + '</option>');
-    //     };
-    //   });
-    // };
-
-
-    // var results = instantiatedDoctorsObject.getDoctors(query);
-    // console.log(results);
   });
-
-
-
-
-
-  // var exampleInstance = new ExampleModule('args');
-
-  // console.log(exampleInstance.examplePrototype());
 });

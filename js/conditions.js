@@ -11,22 +11,13 @@ Conditions.prototype.getConditions = function(populateConditions) {
     for(i=0; i < allConditions.length; i++) {
       this.arrayOfConditions.push(result.data[i].name);
     }
+
+    //Sort the list into alphabetical order
     this.arrayOfConditions = this.arrayOfConditions.sort();
-    console.log(this.arrayOfConditions);
-    // var alphabeticalConditions = result.data[i].name.sort();
-    // console.log(alphabeticalConditions);
-    // console.log(result.data[4].name);
-    // var eachCondition = result.data[i].name;
-    // var nameProperty = name;
-    // $('#output-select').append('<option>' + result.data[i].name + '</option>');
+
+    //Call the front-end call-back to populate the select menu
     populateConditions(this.arrayOfConditions);
   });
 };
-
-Conditions.prototype.alphabetizeConditions = function() {
-  // var alphabetizedList =
-};
-
-
 
 exports.conditionsModule = Conditions;
